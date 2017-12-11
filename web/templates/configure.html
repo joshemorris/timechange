@@ -10,7 +10,12 @@ window.onload = function myFunction() {
 }
 </script> -->
 
-<div class="container">
+{% if message %}
+{% from "_messages.html" import render_messages %} <!-- import a macro to render table -->
+{{ render_messages(flag, message) }}
+{% endif %}
+
+<div class="container"  style="margin-bottom: 50px;"">
 
 <h3 class="center-align" style="margin-top: 40px;">Configure Classifier</h3>
 <hr style="border-color: silver;">
@@ -21,6 +26,10 @@ window.onload = function myFunction() {
 
     <form action="{{ url_for('configure_timechange') }}" method="POST">
       <div class="row">
+
+        <div style="display: flex; flex-wrap: wrap;">
+
+
         <div class="col s6">
           <h3>Model Type</h3>
           <hr style="border-color: silver;">
@@ -35,17 +44,20 @@ window.onload = function myFunction() {
         </div>
 
         <div class="col s6">
-          <div class="form-inline">
+          <div class="input-field">
             <label class="sr-only" for="inlineFormInput">Number of Blocks</label>
-            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" name="num_block" placeholder="64">
-
+            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" name="num_block" placeholder="3">
+          </div>
+          <div class="input-field">
             <label class="sr-only" for="inlineFormInput">Number of Filters</label>
-            <input type="text" name="num_filters" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="32">
-
+            <input type="text" name="num_filters" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="16, 32, 32">
+          </div>
+          <div class="input-field">
             <label class="sr-only" for="inlineFormInput">Learning Rate</label>
-            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" name="learning_rate" placeholder="32">
+            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" name="learning_rate" placeholder=".001">
           </div>
         </div>
+      </div>
       </div>
       <div class="center-align">
         <button class ="btn btn-primary waves-effect waves-light btn-block" type="" value="">Submit</button>

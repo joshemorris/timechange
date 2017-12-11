@@ -6,6 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+<i class="em em-some-emoji"></i>
+
+
   <!-- external stylesheet-->
   <link rel="stylesheet" type="text/css" href="static/styles.css">
 
@@ -24,6 +30,55 @@
 
   @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+
+  a:hover {
+    cursor:pointer;
+    background: grey !important;
+    color: white;
+  }
+
+  ul {
+    border:1px dotted black;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-align: center;
+    display:table;
+    width:100%;
+
+  }
+
+  li {
+    display: table-cell;
+
+    padding: 0;
+    margin: 0px;
+  }
+
+  li a {
+    display: block;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    color: black;
+    text-align: center;
+    padding: 0;
+    margin: 0px;
+    height: 80px;
+    text-decoration: none;
+
+  }
+
+  li a.active {
+    background-color: grey;
+    color: white;
+  }
+
+  li a:hover {
+    background-color: grey;
+  }
+
+
   /* overriding materialize button */
   .btn {
     color: #fff;
@@ -36,7 +91,7 @@
 
   .btn:hover{
     background: #516874 !important;
-    color: #000;
+    color: #fff;
   }
 
   .carousel .carousel-item{
@@ -50,22 +105,24 @@
   .tabs {
     border: 3px solid gray
     background: black;
+
   }
 
   .tabs .indicator {
     background-color: #173645;
+
   }
 
   .tabs .tab a.active {
-    color: #000 !important;
+    color: #173645 !important;
   }
 
   .tabs .tab a:hover {
-    color: #000 !important;
+    color: #173645 !important;
   }
 
   .tabs .tab a {
-    color: #000;
+    color: #173645;
   }
 
   html, body {
@@ -74,8 +131,6 @@
     font-family: Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: black !important;
-    height: 100vh;
-    
   }
 
   .jumbotron {
@@ -86,23 +141,99 @@
     color: white;
     font-size: 1.3em;
     font-weight: lighter;
-    height: 200px;
   }
 
-  </style>
-  <script>
-  $(document).ready(function(){
-    $(".fade").hide(0).delay(100).fadeIn(3000);
-  });
-  </script>
+  .imgPos {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  /* label color */
+  .input-field label {
+    color: #173645 !important;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #173645 !important;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #173645 !important;
+    box-shadow: 0 1px 0 0 #173645 !important;
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #173645 !important;
+    box-shadow: 0 1px 0 0 #173645 !important;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid #173645 !important;
+    box-shadow: 0 1px 0 0 #173645 !important;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #173645 !important;
+  }
+
+  /* radio buttons */
+  /* Checked styles */
+  [type="radio"]:checked + label:after,
+  [type="radio"].with-gap:checked + label:before,
+  [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #173645 !important;
+  }
+
+  [type="radio"]:checked + label:after,
+  [type="radio"].with-gap:checked + label:after {
+    background-color: #173645 !important;
+  }
+
+
+  @media only screen and (max-width: 780px) {
+    ul {
+      list-style-type: none !important;
+
+      width: 100% !important;
+      background-color: white;
+    }
+
+    li {
+      display:block;
+    }
+
+    li a {
+      display: block !important;
+      color: #000 !important;
+      padding: 8px 16px !important;
+      text-decoration: none !important;
+      height:auto;
+    }
+
+    /* Change the link color on hover */
+    li a:hover {
+      background-color: #555 !important;
+      color: white !important;
+    }
+  }
+}
+
+</style>
+<!-- <script>
+$(document).ready(function(){
+  $(".fade").hide(0).delay(100).fadeIn(3000);
+});
+</script> -->
 </head>
 
 
 <body>
-  <div class="container z-depth-2" style="height: 100vh">
+  <div class="container z-depth-2" style="height: 100% !important; overflow-y: scroll; overflow:hidden;">
     <div id="jumbotron" class="jumbotron">
       <div class="container">
-        <h2 class="center-align">TimeChange</h2>
+        <img class="imgPos" src="{{url_for('static', filename='LOGO.png')}}" width=50% height=50% />
       </div>
     </div>
 

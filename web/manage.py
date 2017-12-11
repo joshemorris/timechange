@@ -16,9 +16,9 @@ manager = Manager(app)
 
 # Starts the server with the following settings
 manager.add_command("runserver", Server(
-    use_debugger = True,
+    use_debugger = False,
     # Automatically reloads code
-    use_reloader = True,
+    use_reloader = False,
     host = os.getenv('IP', '0.0.0.0'),
     port = int(os.getenv('PORT', 5000))
     )

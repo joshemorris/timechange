@@ -4,11 +4,11 @@
 <!-- Import navbar from parent -->
 {% block nav %}{{ super() }}{% endblock %}
 
-<script>
+<!-- <script>
 window.onload = function myFunction() {
-    $("#jumbotron").hide();
+  $("#jumbotron").hide();
 }
-</script>
+</script> -->
 
 
 {% if message %}
@@ -18,34 +18,34 @@ window.onload = function myFunction() {
 
 
 <!-- Begin Transform Data tab -->
-<div class="container">
+<div class="container" style="margin-bottom: 50px">
 
 
-<div id="transformData" class="tab-pane fade in active">
-  <div style="margin: auto">
-    <h3 class="center-align" style="margin-top: 40px;">Instructions</h3>
-    <div >
-      <div class="container">
-        <p >
-          Set parameters for the data transformation here.<br>
-          Press "Transform Data" to start the data transformation.
-        </p>
+  <div id="transformData" class="tab-pane fade in active">
+    <div style="margin: auto">
+      <h3 class="center-align" style="margin-top: 40px;">Instructions</h3>
+      <div >
+        <div class="container" style="margin: auto;">
+          <p style="text-align: center;">
+            Set parameters for the data transformation here.<br>
+            Press "Transform Data" to start the data transformation.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <hr style="border-color: silver;">
+    <hr style="border-color: silver;">
 
-  <!-- row: columns to include -->
-  <div class="" style="margin-top:50px">
+    <!-- row: columns to include -->
+    <div class="" style="margin-top:50px">
 
-    <!-- Begin form to submit all data on page -->
-    <!-- TODO: Implement WTForms - maybe -->
-    <form action="{{ url_for('transform_data_timechange') }}" method="POST">
-      <div class="row">
+      <!-- Begin form to submit all data on page -->
+      <!-- TODO: Implement WTForms - maybe -->
+      <form action="{{ url_for('transform_data_timechange') }}" method="POST">
+        <div class="row">
 
-        <div class="col s6">
-          <h4 class="text-center">Transform Type</h4>
+          <div class="col s6">
+            <h4 class="text-center">Transform Type</h4>
             <p>
               <input class="with-gap" name="options" type="radio" id="none" value="none" />
               <label for="none">None</label>
@@ -58,29 +58,31 @@ window.onload = function myFunction() {
               <input class="with-gap" name="options" type="radio" id="spectrogram" value="spectrogram" />
               <label for="spectrogram">Spectrogram</label>
             </p>
-        </div>
+          </div>
 
-        <div class="col s6">
-          <div class="form-inline">
-            <label class="sr-only" for="inlineFormInput">FFT Size</label>
-            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="fft_size" placeholder="64">
-
-            <label class="sr-only" for="inlineFormInput">Chunk Size</label>
-            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="chunk_size" placeholder="32">
-
-            <label class="sr-only" for="inlineFormInput">Columns (Comma Separated)</label>
-            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="columns" placeholder="1, 2, 3">
+          <div class="col s6">
+            <div class="input-field">
+              <label class="sr-only" for="inlineFormInput">FFT Size</label>
+              <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="fft_size" placeholder="64">
+            </div>
+            <div class="input-field">
+              <label class="sr-only" for="inlineFormInput">Chunk Size</label>
+              <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="chunk_size" placeholder="32">
+            </div>
+            <div class="input-field">
+              <label class="sr-only" for="inlineFormInput">Columns (Comma Separated)</label>
+              <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="columns" placeholder="0, 1, 2">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="center-align">
-        <button class ="btn btn-primary waves-effect waves-light" type="" value="">Submit</button>
-      </div>
+        <div class="center-align">
+          <button class ="btn btn-primary waves-effect waves-light" type="" value="">Submit</button>
+        </div>
 
-    </form>
+      </form>
+    </div>
+
   </div>
 
-</div>
-
-{% endblock %}
+  {% endblock %}

@@ -27,18 +27,16 @@ p {
   -webkit-margin-end: 0px;
 }
 </style>
-<script>
+<!-- <script>
 $(document).ready(function(){
-  $(".fade").hide(0).delay(200).fadeIn(3000)
-
   $("#jumbotron").hide();
   $("#jumbotron").slideDown();
 });
-</script>
+</script> -->
 
 <!-- Begin Home tab -->
-<div class="container">
-  <div id="home" class="tab-pane fade in">
+
+  <div id="home" class="tab-pane fade in" style="margin-bottom: 100px;">
     <!-- <h5 id="title" class="center-align" >Welcome to TimeChange</h5> -->
     <div style="width: 65%; margin: auto; margin-top: 60px;">
       <p class="text-justify">Timechange allows users to easily convert timeseries csv formatted
@@ -54,7 +52,7 @@ $(document).ready(function(){
       </form>
     </div>
   </div>
-</div>
+
 
 
 {% endblock %}

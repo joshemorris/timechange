@@ -81,6 +81,11 @@ form button:active{
 
 <script>
 
+// window.onload = function myFunction() {
+//     $("#jumbotron").hide();
+//     $()
+// }
+
 $(document).ready(function(){
   $('#hideInstrBtn').click(function(){
     console.log("HELO")
@@ -102,24 +107,6 @@ $(document).ready(function(){
 });
 </script>
 
-{% if slideUp == True %}
-
-<script>
-window.onload = function myFunction() {
-    $("#jumbotron").slideUp();
-    $()
-}
-</script>
-{% else %}
-
-<script>
-window.onload = function myFunction() {
-    $("#jumbotron").hide();
-    $()
-}
-</script>
-{% endif %}
-
 
 {% if flag %}
 {% from "_messages.html" import render_messages %} <!-- import a macro to render table -->
@@ -140,9 +127,6 @@ window.onload = function myFunction() {
           Step 4) Repeat steps 2 and 3 until all files are labeled<br>
           Step 5) Click "Add to Project" button to add these labeled files to the project<br>
         </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 25px">
-          <a id="hideInstrBtn" class="waves-effect waves-light btn" style="margin: auto !important; color: white !important;">Hide instructions</a>
-        </div>
       </div>
 
       <!-- Table -->
@@ -160,20 +144,11 @@ window.onload = function myFunction() {
           <a class="btn waves-effect waves-light submitjson" type="submit" name="action" >Submit Labels</a>
         </div>
 
-        <!-- <form style="border: none;">
-
-          <input type="submit" value="Submit Labels">
-        </form> -->
-
-
-        <!-- <div>
-          <a class="btn" id="getlabel" action="{{ url_for('getjson') }}" method="POST" type="submit" value="">Submit</a>
-        </div> -->
 
         {% else %}
 
         <!-- Input Files Form -->
-        <div class="container">
+        <div class="container" style="margin-bottom: 45px;">
           <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" style="width: 75%; margin: auto !important; margin-top: 40px !important;">
             <input type="file" name="file" accept=".csv" multiple />
             <p>Drag your files here or click in this area.</p>

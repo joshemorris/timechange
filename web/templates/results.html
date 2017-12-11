@@ -3,22 +3,31 @@
 {% block content %}
 <!-- Import navbar from parent -->
 {% block nav %}{{ super() }}{% endblock %}
-<!--
-<script>
+
+<!-- <script>
 window.onload = function myFunction() {
     $("#jumbotron").hide();
 }
 </script> -->
 
+{% if message %}
+{% from "_messages.html" import render_messages %} <!-- import a macro to render table -->
+{{ render_messages(flag, message) }}
+{% endif %}
+
 <!-- Begin Results tab -->
-<div class="container" style="width: 75%;">
+<div class="container" style="width: 75%;  margin-bottom: 50px;">
   <div id="results" class="tab-pane fade in active">
     <h3 class="center-align" style="margin-top: 40px;">Results</h3>
     <div style="display:flex;justify-content:center;">
       <form id="upload-form" action="{{ url_for('train_timechange') }}" method="POST">
         <button class ="btn btn-primary" type="" value="">TRAIN</button>
       </form>
-      {{ ret }}
+    </div>
+    <div style="margin: auto; margin-top: 50px;">
+      {% if ret is defined %}
+        <h4 class="center-align">{{ ret }}</h4>
+      {% endif %}
     </div>
   </div>
 </div>

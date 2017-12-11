@@ -1,6 +1,6 @@
 {% macro render_field(fields) %}
 
-<div class="table-responsive" style="overflow-y: scroll !important; height: 100vh; overflow-x: hidden;">
+<div class="table-responsive" >
   <table id = "mytable" class="table table-bordred table-striped" action="POST">
 
     <!-- Table Head -->
@@ -30,21 +30,20 @@
       {% endfor %}
     </tbody>
 
-<div style="width: 75%; margin-top: 40px !important;">
-  <div class="row">
-    <div class="input-field" style="display: flex; align-items: center;">
-      <div style="margin: 10px !important;">
-        <button class="btn waves-effect waves-light mysubmit" type="submit" name="action" >Submit</button>
-      </div>
-      <div class="input-field col s10">
-        <input class="w3-check labelVal" value="" name="label" type="text">
-        <label for="label">Type Label Here</label>
+    <div style="width: 75%; margin-top: 40px !important;">
+      <div class="row">
+        <div class="input-field" style="display: flex; align-items: center;">
+          <div style="margin: 10px !important;">
+            <button class="btn waves-effect waves-light mysubmit" type="submit" name="action" >Submit</button>
+          </div>
+          <div class="input-field col s10">
+            <input class="w3-check labelVal" value="" name="label" type="text">
+            <label for="label">Type Label Here</label>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-</table>
+  </table>
 </div>
 
 

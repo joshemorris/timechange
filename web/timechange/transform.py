@@ -75,7 +75,8 @@ def convert_all_csv(project_path, method, chunk_size, fft_size, columns):
 
     # Iterate over labels
     for label in os.scandir(path.join(project_path, "csv")):
-
+        print(label)
+        print('')
         # Iterate over a label's csv files
         for csv_file in os.scandir(label.path):
             with open(csv_file.path, 'r') as csv_file_handle:
